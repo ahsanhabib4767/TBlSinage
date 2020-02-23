@@ -1,0 +1,127 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@{
+    ViewBag.Title = "Work Request Status";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Reports</h2>
+                <label background-color: pink><input type="radio" name="nm" id="r1" value="1" class="radio radio-inline"> Date Wise</>
+                <input type="radio" name="nm" id="r2" value="2" class="radio radio-inline">Vendor Wise</>
+                <input type="radio" name="nm" id="r3" value="3" class="radio radio-inline">My All Vendor</></label>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-4">
+                            <label>Enter Begining Date:</label>
+                           
+                            <input type="date" class="form-control" id="BeginingDate" value="@DateTime.Now" style="text-align:center" />
+                            <label>Enter Ending Date:</label>
+                           
+                            <input type="date" class="form-control" id="EndingDate" value="@DateTime.Now" style="text-align:center" />
+                            </div>
+                        <div class="col-md-4">
+                            <label>Select Vendor</label>
+                            @Html.DropDownList("VenID", null, "Select Vendor ", new { @class = "form-control" })
+                            <label>Click</label>
+                            <input type="button" id="showReport" value="Preview" class="form-control btn-primary" />
+                        </div>
+
+
+
+                    </div>
+                    <div class="table-responsive" id="tabledata"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#BeginingDate").prop('disabled', true);
+        $("#EndingDate").prop('disabled', true);
+        $("#VenID").prop('disabled', true);
+       
+
+        $("#r1").change(function () {
+            $("#BeginingDate").prop('disabled', false);
+            $("#EndingDate").prop('disabled', false);
+            $("#VenID").prop('disabled', true);
+         
+        });
+        $("#r2").change(function () {
+            $("#BeginingDate").prop('disabled', true);
+            $("#EndingDate").prop('disabled', true);
+            $("#VenID").prop('disabled', false);
+        });
+
+        $('#showReport').click(function () {
+            var radioValue = $('input:radio[name=nm]:checked').val();
+            var vValue = $("#VenID").val();
+           
+            if (radioValue == 1) {
+                $.ajax({
+                    url: "@Url.Action("InstallDateWise", "Report")",
+                    dataType: "HTML",
+                    type: "POST",
+                    data: {bDate: $("#BeginingDate").val(), eDate: $("#EndingDate").val()},
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        $("#tabledata").html(data);
+                    }
+                });
+            }
+            else if (radioValue == 2) {
+                $.ajax({
+                    url: "@Url.Action("VendorNameWise","Report")",
+                    dataType: "HTML",
+                    type: "POST",
+                    data: { vid: vValue },
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        $("#tabledata").html(data);
+                    }
+                });
+            }
+            else if (radioValue == 3) {
+                $.ajax({
+                    url: "@Url.Action("AllVendorNameWise", "Report")",
+                    dataType: "HTML",
+                type: "POST",
+                //data: { vid: vValue },
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $("#tabledata").html(data);
+                }
+            });
+        }
+        })
+    })
+</script>
+
+

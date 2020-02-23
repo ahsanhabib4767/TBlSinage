@@ -1,0 +1,232 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@model SalesTest.ModelData.RequestVisicoolerVM
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Request For Visicooler</h3>
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Form</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div>
+                        <input type="text" id="load" class="form-control" placeholder="search by outletcode" />
+                        <p id="Status" />
+                    </div>
+                    <div>
+                        <input type="button" id="SearchData" value="Click For Details" class="btn btn-primary btn-sm btn-block" />
+                    </div>
+@using (Html.BeginForm("SaveData", "VisiCooler", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+              <div class="x_content">
+                            <div class="col-md-4">
+                                <input type="hidden" id="id"/>
+                                <label>Region Name:</label>
+                                @Html.TextBox("RegionName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Area Name</label>
+                                @Html.TextBox("AreaName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Ce Area</label>
+                                <input type="hidden" id="VehicleDes" />
+                                @Html.TextBox("CeAreaName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>DB Name</label>
+                                @Html.TextBox("DbName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Cluster</label>
+                                @Html.TextBox("cluster", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>PSR Name</label>
+                                @Html.TextBox("PSRName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label style="color:blue">SubRoute</label>
+                                @Html.TextBox("SubRoute", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <label style="color:red">Outlet Code</label>
+                                @Html.TextBox("OutletCode", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+
+                                <label>Outlet Name</label>
+                                @Html.TextBox("OutLetName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Outlet Address</label>
+                                @Html.TextBox("Address", null, new { @class = "form-control", @Value = "0", @readonly = "readonly" })
+
+                                <label>Owner Name</label>
+                                @Html.TextBox("OwnerName", null, new { @class = "form-control", @Value = "0", @readonly = "readonly" })
+                                <label>Contact Number</label>
+                                @Html.TextBox("ContactNum", null, new { @class = "form-control", @Value = "0", @required = "required" })
+
+                                <label>Alternative Contact</label>
+                                @Html.TextBox("ContactNumTwo", null, new { @class = "form-control", @Value = "0" })
+                                <label>Channel</label>
+                                @Html.TextBox("ChannelName", null, new { @class = "form-control", @Value = "0", @readonly = "readonly", @required = "required" })
+                            </div>
+                            <div class="col-md-4">
+                                <label style="color:red">Sales of last One month(Case)</label>
+                                @Html.TextBox("TotalCase", null, new { @class = "form-control", @Value = "0", @readonly = "readonly", @required = "required" })
+                                <label>Visicooler Size<span class="required">*</span></label>
+                                @Html.DropDownList("VisiSize", null, "Select One", new { @class = "form-control", @required = "required" })
+                                <label>NightGuard</label>
+                                @Html.DropDownList("NightGuard", null, "Select One", new { @class = "form-control", @required = "required" })
+                                <label>Remarks</label>
+                                @Html.TextBox("remarks", null, new { @class = "form-control", @Value = "0" })
+                                <br />
+                                <label>Upload Picture Application Image<span class="required">*</span></label>
+                                <input type="file" id="UploadImage1" name="UploadImage1" class="form-control" required="required" />
+                                <label>Upload Picture Trade License<span class="required">*</span></label>
+                                <input type="file" id="UploadImage2" name="UploadImage2" class="form-control" required="required" />
+                                <label>Upload Picture Vooter ID<span class="required">*</span></label>
+                                <input type="file" id="UploadImage3" name="UploadImage3" class="form-control" required="required" />
+                                <button type="submit" id="btnClick" class="btn btn-primary btn-sm btn-block">
+                                    Save Request
+                                </button>
+                                <br />
+                                <input type="button" id="btnReset" value="Reset" class="btn btn-primary btn-sm btn-block" onclick="ReLoad()" ; />
+                            </div>
+                        </div>
+}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+     $("#SearchData").prop('disabled', false);
+
+        document.getElementById("btnClick").disabled = true;
+            $("#SearchData").click(function () {
+            $.ajax({
+               url: "@Url.Action("GetOutLetAsync", "VisiCooler")",
+                data: { outletcode: $("#load").val()},
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $("#TotalCase").val(data.result1);
+                //alert(data.result2);
+                $("#id").val(data.result2[0].id);
+                $("#RegionName").val(data.result2[0].RegionName);
+                $("#AreaName").val(data.result2[0].AreaName);
+                $("#CeAreaName").val(data.result2[0].CeAreaName);
+                $("#DbName").val(data.result2[0].DbName);
+                $("#Address").val(data.result2[0].Address);
+                $("#cluster").val(data.result2[0].cluster);
+                $("#PSRName").val(data.result2[0].PSRName);
+                $("#SubRoute").val(data.result2[0].SubRoute);
+                $("#OutletCode").val(data.result2[0].OutletCode);
+                $("#OutLetName").val(data.result2[0].OutLetName);
+                $("#OwnerName").val(data.result2[0].OwnerName);
+                $("#ContactNum").val(data.result2[0].ContactNum);
+                $("#ChannelName").val(data.result2[0].ChannelName);
+                $("#btnClick").prop('disabled', false);
+
+                //window.location.reload();
+            },
+            error: function () {
+                alert("Error!Outletcode not found or Invalid Outletcode");
+                window.location.reload();
+            }
+            });
+
+            $("#btnClick").prop('disabled', true);
+            })
+    $('#UploadImage').change(function () {
+        $("#btnClick").prop('disabled', false);
+    });
+
+        //function ItemCreated() {
+        //    document.getElementById("btnClick").disabled = true;
+        //    var answer = confirm('Are you sure you want to save this?');
+        //    if (answer) {
+        //        //  return;
+        //        //return status;
+        //    }
+        //    else {
+        //        return false;
+        //    }
+        //    var isAllValid = true;
+        //    var status = true;
+
+        //    //debugger;
+
+        //    if (isAllValid) {
+        //            var data = {
+        //                id: $().val("#id"),
+        //                RegionName: $("#RegionName").val(),
+        //                AreaName: $("#AreaName").val(),
+        //                CeAreaName: $("#CeAreaName").val(),
+        //                DbName: $("#DbName").val(),
+        //                cluster: $("#cluster").val(),
+        //                PSRName: $("#PSRName").val(),
+        //                SubRoute: $("#SubRoute").val(),
+        //                OutletCode: $("#OutletCode").val(),
+        //                Address:$("#Address").val(),
+        //                OutLetName: $("#OutLetName").val(),
+        //                OwnerName: $("#OwnerName").val(),
+        //                ContactNum: $("#ContactNum").val(),
+        //                ContactNumTwo: $("#ContactNumTwo").val(),
+        //                ChannelName: $("#ChannelName").val(),
+        //                VisiSize: $("#VisiSize").val(),
+        //                NightGuard: $("#NightGuard").val(),
+        //                TotalCase: $("#TotalSales").val(),
+        //            }
+        //    }
+        //    console.log(data);
+        //    $.ajax({
+        //        url: '/VisiCooler/SaveData',
+        //        type: "POST",
+        //        data: JSON.stringify(data),
+        //        dataType: "JSON",
+        //        contentType: "application/json",
+        //        success: function (a) {
+
+        //            if (a.status == true) {
+
+        //                alert('Successfully Done... Requisition Token No:' + a.maxrNo);
+        //                window.location.reload();
+        //            }
+        //            else {
+        //                alert('Try again please!!');
+        //            }
+
+
+        //        },
+        //        error: function () {
+        //            alert('Error. Please try again.');
+        //        }
+        //    });
+        //}
+
+    function ReLoad(){
+        alert("Are you sure reset the page ...?")
+        location.reload();
+    }
+
+
+</script>
+
+
+
+

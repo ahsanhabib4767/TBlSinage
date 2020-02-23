@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SalesTest.Models.VendorConfirm>
+@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@{
+    ViewBag.Title = "Work Request Status";
+    var grid = new WebGrid(source: Model, rowsPerPage: 10);
+}
+<!-- page content -->
+
+<style type="text/css">
+    table.gridtable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+    }
+
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+</style>
+
+
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <div class="x_title">
+                            <h2>Print</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <div class="table-responsive">
+                      @using (Html.BeginForm("PrintSelected", "Vendor", FormMethod.Post))
+                      {
+                        @grid.GetHtml(
+    tableStyle: "gridtable",
+    columns:
+        grid.Columns(
+
+            @*Here I Will Add Checkbox Column*@
+            grid.Column(format:@<text><input type="checkbox" name="ids" id="checkbo" value="@item.id"/></text>, header: "Select"),
+            grid.Column("id", "ID"),
+            grid.Column("VenReqID", "Request ID"),
+            grid.Column("OutLetCode", "OutLet Code"),
+            grid.Column("OutLetName", "Outlet Name"),
+            grid.Column("sinage", "Outlet Name")
+        )
+    )
+    <input type="submit" value="ADD" id="btnAdd" class="btn btn btn-success" />
+    <button type="submit" id="btnClick" class="btn btn-primary">
+        Print
+    </button>
+                      }  
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+document.getElementById("btnAdd").disabled = true;
+document.getElementById("btnClick").disabled = true;
+$("#checkbo").click(function () {
+    document.getElementById("btnAdd").disabled = false;
+})
+</script>

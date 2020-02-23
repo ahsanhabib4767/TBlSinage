@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SalesTest.Models.RequestMaster>
+@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@{
+    ViewBag.Title = "Work Request Status";
+}
+ <!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+             
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <p>Progress Status of a Request</p>
+                        <div class="table-responsive">
+                        <table class="table table-striped projects">
+                            <thead>
+                                <tr>
+                                    <th style="width: 1%">SL</th>
+                                    <th class="column-title">Uploaded Image</th>
+                                    <th class="column-title">Outlet Code</th>
+                                    <th class="column-title">Region Name</th>
+                                    <th class="column-title">Ce Area Name</th>
+                                    <th class="column-title">ASM</th>
+                                    <th class="column-title">Request Progress Acceptance</th>
+                                    
+                                </tr>
+                            </thead>
+                            @{
+                                int sno = 0;
+                            }
+@foreach (var item in Model)
+{
+                            <tbody>
+                                <tr>
+                                    <td>@{ sno++; }
+                                    @sno</td>
+                                    <td>
+                                        <img src="~/AppFile/Images/@item.PicUrl" height="70" width="150" />
+                                    </td>
+                                    <td>
+                                       @Html.DisplayFor(model => item.OutletCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.RegionName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.CeAreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.AreaName)
+                                    </td>
+                                    <td class="project_progress">
+                                        @if (item.AppFlag1 == "I" && item.AppFlag2=="O" && item.AppFlag3=="S")
+                                        {
+
+
+                                        <div class="progress progress_sm">
+                                            <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="20"></div>
+                                        </div>
+                                        <small>20% Complete</small>
+                                        }
+                                        @if (item.AppFlag1 == "A" && item.AppFlag2 == "O" && item.AppFlag3 == "S")
+                                        {
+
+
+                                            <div class="progress progress_sm">
+                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                                            </div>
+                                            <small>70% Complete</small>
+                                        }
+                  
+                                       
+                                        @if (item.AppFlag1 == "A" && item.AppFlag2 == "A" && item.AppFlag3 == "S")
+                                        {
+
+
+                                            <div class="progress progress_sm">
+                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="100"></div>
+                                            </div>
+                                            <small>100% Complete</small>
+                                        }
+                                        @if (item.AppFlag1 == "A" && item.AppFlag2 == "A" && item.AppFlag3 == "D")
+                                        {
+
+
+                                            <div class="progress progress_sm">
+                                                <div class="progress-bar bg-blue" role="progressbar" data-transitiongoal="100"></div>
+                                            </div>
+                                            <small>Vendor Selected</small>
+                                        }
+                                    </td>
+                                   
+                               
+                                </tr>
+                              
+                            </tbody>
+}
+                        </table>
+</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+
+

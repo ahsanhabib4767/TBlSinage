@@ -1,0 +1,255 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@{
+    ViewBag.Title = "Select Vendors";
+}
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <a class="btn btn-app">
+                        <span class="badge bg-red" id="itemss"></span>
+                        <i class="fa fa-bullhorn"></i> Notifications
+                    </a>
+                    <div class="x_content">
+                        <div class="x_title">
+                            <h2>Select Vendor for Signage(এখানে চেক করুন*)</h2>
+
+                            @Html.DropDownList("ReqID", null, "Select Request", new { @class = "form-control" })
+
+                        </div>
+                    </div>
+
+                </div>
+                <img id="icUrl" width="100" height="100" />
+                <div class="container">
+
+                    <div class="col-md-4">
+                        <input type="hidden" id="id" />
+                        <input type="hidden" id="OrderBy" />
+                        <input type="hidden" id="SE" />
+                        <input type="hidden" id="ASM" />
+                        <input type="hidden" id="RSM" />
+                        <input type="hidden" id="sinagetype" />
+                        <input type="hidden" id="otherbrand" />
+                        <label style="color:red">Select Vendor</label>
+                        @Html.DropDownList("VenID", null, "Select Vendor", new { @class = "form-control" })
+                        <label>RequestID:</label>
+                        @Html.TextBox("Req", null, new { @class = "form-control", @readonly = "readonly" })
+
+                        <label>Region Name:</label>
+                        @Html.TextBox("RegionName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Area Name</label>
+                        @Html.TextBox("AreaName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Ce Area</label>
+                        <input type="hidden" id="VehicleDes" />
+                        @Html.TextBox("CeAreaName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>DB Name</label>
+                        @Html.TextBox("DbName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Cluster</label>
+                        @Html.TextBox("cluster", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>PSR Name</label>
+                        @Html.TextBox("PSRName", null, new { @class = "form-control", @readonly = "readonly" })
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <label style="color:blue">SubRoute</label>
+                        @Html.TextBox("SubRoute", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label style="color:red">Outlet Code</label>
+                        @Html.TextBox("OutletCode", null, new { @class = "form-control", @readonly = "readonly" })
+
+                        <label>Outlet Name</label>
+                        @Html.TextBox("OutLetName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Outlet Address</label>
+                        @Html.TextBox("Address", null, new { @class = "form-control", @readonly = "readonly" })
+
+                        <label>Owner Name</label>
+                        @Html.TextBox("OwnerName", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Contact Number</label>
+                        @Html.TextBox("ContactNum", null, new { @class = "form-control", @readonly = "readonly" })
+
+                        <label>Alternative Contact</label>
+                        @Html.TextBox("ContactNumTwo", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Channel</label>
+                        @Html.TextBox("ChannelName", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="col-md-4">
+                        <label>Signage Type</label>
+                        @Html.TextBox("sinage", null, "Select One", new { @class = "form-control", @readonly = "readonly" })
+                        <label>Other Brand</label>
+                        @Html.TextBox("otherbrandd", null, "Select One", new { @class = "form-control", @readonly = "readonly" })
+
+
+                        <label>Required Signage Height</label>
+                        @Html.TextBox("signageheight", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Required Signage Width</label>
+                        @Html.TextBox("signagewidth", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Remarks</label>
+                        @Html.TextBox("remarks", null, new { @class = "form-control", @readonly = "readonly" })
+                        <label>Message for vendor</label>
+                        @Html.TextBox("msg", null, new { @class = "form-control" })
+                        <label style="color:seagreen">Set Date Limit</label>
+                        <input type="date" class="form-control" id="dateLimit" />
+                        <input type="hidden" id="PicUrl" />
+                        <br />
+                        <input type="button" id="btnClick" value="Update" class="btn btn-primary btn-sm btn-block" onclick="ItemCreated()" ; />
+                        <input type="button" id="btnReset" value="Reset" class="btn btn-primary btn-sm btn-block" onclick="ReLoad()" ; />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var items = $("#ReqID option").length - 1;
+    document.getElementById("itemss").innerHTML = items;
+  document.getElementById("btnClick").disabled = true;
+
+        $('#ReqID').change(function(){
+         $.ajax({
+                url: "@Url.Action("GetASMRequest", "OrderRequest")",
+                data: { reqid: $("#ReqID").val() },
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $("#id").val(data[0].id);
+                $("#Req").val(data[0].ReqID);
+                $("#RegionName").val(data[0].RegionName);
+                $("#AreaName").val(data[0].AreaName);
+                $("#CeAreaName").val(data[0].CeAreaName);
+                $("#DbName").val(data[0].DbName);
+                $("#cluster").val(data[0].cluster);
+                $("#PSRName").val(data[0].PSRName);
+                $("#SubRoute").val(data[0].SubRoute);
+                $("#OutletCode").val(data[0].OutletCode);
+                $("#OutLetName").val(data[0].OutLetName);
+                $("#Address").val(data[0].Address);
+                $("#OwnerName").val(data[0].OwnerName);
+                $("#ContactNum").val(data[0].ContactNum);
+                $("#ChannelName").val(data[0].ChannelName);
+                $("#OutletCatagory").val(data[0].OutletCatagory);
+                $("#sinage").val(data[0].sinageTypeName);
+                $("#otherbrandd").val(data[0].OBrandName);
+                $("#sinagetype").val(data[0].sinagetype);
+                $("#otherbrand").val(data[0].otherbrand);
+                $("#signageheight").val(data[0].signageheight);
+                $("#signagewidth").val(data[0].signagewidth);
+                $("#remarks").val(data[0].remarks);
+                $("#PicUrl").val(data[0].PicUrl);
+                var a = document.getElementById("PicUrl").value;
+                $('#icUrl').attr('src', '/AppFile/Images/' + a)
+                $("#SE").val(data[0].SE);
+                $("#ASM").val(data[0].ASM);
+                $("#RSM").val(data[0].RSM);
+                $("#HOS").val(data[0].HOS);
+                $("#btnSave").prop('disabled', true);
+
+                //window.location.reload();
+            },
+            error: function () {
+                alert("Error!");
+            }
+            });
+
+            $("#btnClick").prop('disabled', true);
+        })
+    $('#dateLimit').change(function(){
+        $("#btnClick").prop('disabled', false);
+    });
+    
+        function ItemCreated() {
+            var answer = confirm('Are you sure you want to save this?');
+            if (answer) {
+                //  return;
+                //return status;
+            }
+            else {
+                return false;
+            }
+            var isAllValid = true;
+            var status = true;
+            if (isAllValid) {
+                var data = {
+
+                    ReqID: $("#ReqID").val(),
+                    VenID: $("#VenID").val(),
+                    RegionName: $("#RegionName").val(),
+                    AreaName: $("#AreaName").val(),
+                    CeAreaName: $("#CeAreaName").val(),
+                    DbName: $("#DbName").val(),
+                    cluster: $("#cluster").val(),
+                    PSRName: $("#PSRName").val(),
+                    SubRoute: $("#SubRoute").val(),
+                    OutletCode: $("#OutletCode").val(),
+                    OutLetName: $("#OutLetName").val(),
+                    Address: $("#Address").val(),
+                    OwnerName: $("#OwnerName").val(),
+                    ContactNum: $("#ContactNum").val(),
+                    ChannelName: $("#ChannelName").val(),
+                    OutletCatagory: $("#OutletCatagory").val(),
+                    sinage: $("#sinage").val(),
+                    SE: $("#SE").val(),
+                    otherbrandd: $("#otherbrandd").val(),
+                    sinagetype: $("#sinagetype").val(),
+                    otherbrand: $("#otherbrand").val(),
+                    signageheight: $("#signageheight").val(),
+                    signagewidth: $("#signagewidth").val(),
+                    remarks: $("#remarks").val(),
+                    msg: $("#msg").val(),
+                    dateLimit: $("#dateLimit").val(),
+                    PicUrl: $("#PicUrl").val(),
+                    OrderBy: $("#OrderBy").val()
+                }
+            }
+            //console.log(data);
+            debugger;
+
+            $.ajax({
+                url: '/OrderRequest/SaveDataForVendor',
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (a) {
+                    //check is successfully save to database
+                    if (a.status == true) {
+
+                        alert('Successfully Done..Vendor Request Token No:' + a.v);
+                        location.reload();
+                         //$("#create").prop('disabled', true);
+                        //$("#btnPrintLOadsheet").prop('disabled', false);
+                        //OrderData = [];
+
+                    }
+                    else {
+                        alert('Process is Failed!! Please Contact to IT dept.');
+                    }
+
+                },
+                error: function () {
+                    alert('Error. Please try again.');
+                }
+            });
+        }
+
+
+
+    function ReLoad(){
+        alert("Are you sure reset the page ...?")
+        location.reload();
+    }
+
+
+
+
+</script>

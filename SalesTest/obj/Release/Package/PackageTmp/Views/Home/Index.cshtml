@@ -1,0 +1,198 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+<div class="right_col" role="main">
+                <!-- top tiles -->
+<div class="row" style="display: inline-block;">
+    @Html.TextBox("userName", null, new { @class = "form-control", @readonly = "readonly" })
+                    <div class="tile_count">
+                        <div class="col-md-4 col-sm-4  tile_stats_count">
+                            <span class="count_top"><i class="fa fa-user"></i>Request</span>
+                            <div class="count">
+                                @ViewData["Request"]
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4  tile_stats_count">
+                            <span class="count_top"><i class="fa fa-user"></i>Completed</span>
+                            <div class="count">        
+                                    @ViewData["ReqID"]
+                            </div>
+                           
+                        </div>
+                        
+                        <div class="col-md-4 col-sm-4  tile_stats_count">
+                            <span class="count_top"><i class="fa fa-user"></i>Total Users of Software</span>
+                            <div class="count green">
+                                @ViewData["User"]
+                            </div>
+                            
+                        </div>
+                        
+                       
+                        
+                    </div>
+                </div>
+                
+<div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+          
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Settings 1</a>
+                                <a class="dropdown-item" href="#">Settings 2</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <p><font color="black">For Tutorial Click Link Below</font></p>
+                    <a href="https://youtu.be/lBJ6DrKk-vU"><font color="Red" size="3" target="_blank">SE Tutorial</font></a>
+                    <br />
+                    <a href="https://youtu.be/F9RsRLGZPJA"><font color="Green" size="3" target="_blank">ASM Tutorial</font></a>
+                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+           
+<div class="row">
+
+                   
+                    <div class="col-md-6 col-sm-6 ">
+                        <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 ">
+                        <div id="world-map-gdp"  style="height:230px;"></div>
+                        
+                        </div>
+                     
+                    </div>
+    <!-- /top tiles rabby-->
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/Home/GetData", function (data) {
+            var Dates = []
+            var Qts = []
+            for (var i = 0; i < data.length; i++) {
+                Dates.push(data[i].date);
+                Qts.push(data[i].count);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Total Signage vs Date'
+                },
+                subtitle: {
+                    text: 'Transcom Beverages Limited'
+                },
+                xAxis: {
+                    title: {
+                        text: 'Date'
+                    },
+                    categories: Dates
+                },
+                //xAxes: [{
+                //    type: 'time',
+                //    categories: Names,
+                //    time: {
+                //        displayFormats: {
+                //            quarter: 'MMM YYYY'
+                //        }
+                //    }
+                //}],
+                yAxis: {
+                    title: {
+                        text: 'Total Signage'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: 'Count of Signage',
+                    data: Qts
+                }]
+            });
+        });
+
+        $.getJSON("/Home/GetDataPie", function (data) {
+
+
+
+            Highcharts.chart('container2', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Other Brands Ratio'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Other Brands',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Paint',
+                        y: data.Paint
+                    }, {
+                        name: 'Sticker',
+                        y: data.Sticker
+                    },
+                    {
+                        name: 'Cooler Sticker',
+                        y: data.Cs
+                    },
+                    {
+                        name: 'Food Combo',
+                        y: data.Food
+                    }]
+                }]
+            });
+        });
+    });
+
+
+</script>
+ 

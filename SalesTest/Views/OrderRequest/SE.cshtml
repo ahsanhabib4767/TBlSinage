@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+@model SalesTest.Models.VendorConfirm
+
+@using (Html.BeginForm("SE", "OrderRequest", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.ReqID)
+        @Html.HiddenFor(model => model.VenReqID)
+        @Html.HiddenFor(model => model.RegionName)
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.CeAreaName)
+        @Html.HiddenFor(model => model.DbName)
+        @Html.HiddenFor(model => model.cluster)
+        @Html.HiddenFor(model => model.PSRName)
+        @Html.HiddenFor(model => model.SubRoute)
+        @Html.HiddenFor(model => model.OutletCode)
+        @Html.HiddenFor(model => model.OutLetName)
+        @Html.HiddenFor(model => model.Address)
+        @Html.HiddenFor(model => model.OwnerName)
+        @Html.HiddenFor(model => model.ContactNum)
+        @Html.HiddenFor(model => model.ContactNumTwo)
+        @Html.HiddenFor(model => model.ChannelName)
+        @Html.HiddenFor(model => model.OutletCatagoryName)
+        @Html.HiddenFor(model => model.PicUrl)
+        @Html.HiddenFor(model => model.sinagetype)
+        @Html.HiddenFor(model => model.sinage)
+        @Html.HiddenFor(model => model.otherbrand)
+        @Html.HiddenFor(model => model.otherbrandd)
+        @Html.HiddenFor(model => model.signageheight)
+        @Html.HiddenFor(model => model.signagewidth)
+        @Html.HiddenFor(model => model.remarks)
+        @Html.HiddenFor(model => model.AppFlag1)
+        @Html.HiddenFor(model => model.AppFlag2)
+        @Html.HiddenFor(model => model.SE)
+        @Html.HiddenFor(model => model.VenID)
+        @Html.HiddenFor(model => model.OrderBy)
+        @Html.HiddenFor(model => model.dateLimit)
+        @Html.HiddenFor(model => model.signageheightNew)
+        @Html.HiddenFor(model => model.signagewidthNew)
+        @Html.HiddenFor(model => model.dateLimitfinal)
+        @Html.HiddenFor(model => model.PicUrl2)
+        @Html.HiddenFor(model => model.installDate)
+
+        <select name="SEfeedback" class="form-control">
+            <option value="Done">Done</option>
+            <option value="Notdone">Not Done</option>
+        </select>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-sm btn-danger" />
+
+            </div>
+        </div>
+    </div>
+}
+
+
+

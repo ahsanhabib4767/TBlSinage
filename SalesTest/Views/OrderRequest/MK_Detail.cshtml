@@ -1,0 +1,26 @@
+﻿@model SalesTest.Models.VendorConfirm
+@{
+    Layout = null;
+}
+<table class="table table-striped projects">
+    <thead>
+        <tr>
+            <th class="column-title">Outlet Image</th>
+            <th class="column-title">After Install</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <img src="~/AppFile/Images/@Html.DisplayFor(model =>model.PicUrl)" height="200" width="200" />
+            </td>
+            <td>
+                <img src="~/AppFile/Images/@Html.DisplayFor(model =>model.PicUrl2)" height="200" width="200" />
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+

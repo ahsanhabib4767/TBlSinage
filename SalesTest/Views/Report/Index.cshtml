@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@{
+    ViewBag.Title = "Work Request Status";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Reports</h2>
+                <label style="color:red">
+                    <input type="radio" name="nm" id="r1" value="1" class="radio radio-inline">My Works(Select Button)</>
+                </label>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <div class="col-md-4">
+                            <label>Click</label>
+                            <input type="button" id="showReport" value="Preview" class="form-control btn-primary" />
+                        </div>
+
+
+
+                    </div>
+                    <div class="table-responsive" id="tabledata"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $('#showReport').click(function () {
+            var radioValue = $('input:radio[name=nm]:checked').val();
+            var vValue = $("#VenID").val();
+
+            if (radioValue == 1) {
+                $.ajax({
+                    url: "@Url.Action("VendorOwnReport", "Report")",
+                    dataType: "HTML",
+                    type: "POST",
+                    data: {vValue :$("#VenID").val()},
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        $("#tabledata").html(data);
+                    }
+                });
+            }
+
+        })
+    })
+</script>
+
+
+

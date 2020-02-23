@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+@model SalesTest.Models.RequestVisicooler
+
+@using (Html.BeginForm("AddOrEditRSM", "VisiCooler", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.ReqID)
+        @Html.HiddenFor(model => model.RegionName)
+        @Html.HiddenFor(model => model.AreaName)
+        @Html.HiddenFor(model => model.CeAreaName)
+        @Html.HiddenFor(model => model.DbName)
+        @Html.HiddenFor(model => model.cluster)
+        @Html.HiddenFor(model => model.PSRName)
+        @Html.HiddenFor(model => model.SubRoute)
+        @Html.HiddenFor(model => model.OutletCode)
+        @Html.HiddenFor(model => model.OutLetName)
+        @Html.HiddenFor(model => model.Address)
+        @Html.HiddenFor(model => model.OwnerName)
+        @Html.HiddenFor(model => model.ContactNum)
+        @Html.HiddenFor(model => model.ContactNumTwo)
+        @Html.HiddenFor(model => model.ChannelName)
+        @Html.HiddenFor(model => model.OutletCatagoryName)
+        @Html.HiddenFor(model => model.NightGuard)
+        @Html.HiddenFor(model => model.VisiSize)
+        @Html.HiddenFor(model => model.remarks)
+        @Html.HiddenFor(model => model.AppFlag1)
+        @Html.HiddenFor(model => model.AppFlag2)
+        @Html.HiddenFor(model => model.SE)
+        @Html.HiddenFor(model => model.ASM)
+        @Html.HiddenFor(model => model.CreateDate)
+        @Html.HiddenFor(model => model.TotalCase)
+        <select name="AppFlag3" class="form-control">
+            <option value="A">Accept</option>
+            <option value="R">Reject</option>
+        </select>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-sm btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+

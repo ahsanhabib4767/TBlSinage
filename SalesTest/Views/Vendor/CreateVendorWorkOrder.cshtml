@@ -1,0 +1,266 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Vendor Ack Receive</h3>
+            </div>
+
+        </div>
+        <div class="x_panel">
+
+            <div class="x_content">
+                <div class="x_title">
+
+                    @Html.DropDownList("VenReqID", null, "Select Request", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Data</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-4">
+                            <input type="hidden" id="id" />
+                            @Html.TextBox("OrderBy", null, new { @class = "form-control", @readonly = "readonly" })
+
+                            <label>RequestID:</label>
+                            @Html.TextBox("Req", null, new { @class = "form-control", @readonly = "readonly" })
+
+                            <label>Region Name:</label>
+                            @Html.TextBox("RegionName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Area Name</label>
+                            @Html.TextBox("AreaName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Ce Area</label>
+                            <input type="hidden" id="VehicleDes" />
+                            @Html.TextBox("CeAreaName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>DB Name</label>
+                            @Html.TextBox("DbName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Cluster</label>
+                            @Html.TextBox("cluster", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>PSR Name</label>
+                            @Html.TextBox("PSRName", null, new { @class = "form-control", @readonly = "readonly" })
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <input type="hidden" id="VenID" />
+                            <input type="hidden" id="VenReqID" />
+                            <label style="color:blue">SubRoute</label>
+                            @Html.TextBox("SubRoute", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label style="color:red">Outlet Code</label>
+                            @Html.TextBox("OutletCode", null, new { @class = "form-control", @readonly = "readonly" })
+
+                            <label>Outlet Name</label>
+                            @Html.TextBox("OutLetName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Outlet Address</label>
+                            @Html.TextBox("Address", null, new { @class = "form-control", @readonly = "readonly" })
+
+                            <label>Owner Name</label>
+                            @Html.TextBox("OwnerName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Contact Number</label>
+                            @Html.TextBox("ContactNum", null, new { @class = "form-control", @readonly = "readonly" })
+
+                            <label>Alternative Contact</label>
+                            @Html.TextBox("ContactNumTwo", null, new { @class = "form-control", @readonly = "readonly" })
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <label>Channel</label>
+                            @Html.TextBox("ChannelName", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Signage Type</label>
+                            @Html.TextBox("sinagetype", null, "Select One", new { @class = "form-control", @readonly = "readonly" })
+                            <label>Required Signage Height</label>
+                            @Html.TextBox("signageheight", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Required Signage Width</label>
+                            @Html.TextBox("signagewidth", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Remarks</label>
+                            @Html.TextBox("remarks", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label>Message for vendor</label>
+                            @Html.TextBox("msg", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label style="color:blue">New Signage Height</label>
+                            @Html.TextBox("signageheightNew", null, new { @class = "form-control", @readonly = "readonly" })
+                            <label style="color:blue">New Signage Width</label>
+                            @Html.TextBox("signagewidthNew", null, new { @class = "form-control"})
+
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                    <div class="col-md-6 offset-md-4">
+                        <label style="color:blue">Feed Back</label>
+                        @Html.TextBox("feedback", null, new { @class = "form-control", @readonly = "readonly"})
+                        <label style="color:blue">Date Limit</label>
+                        @Html.TextBox("dateLimitFinal", null, new { @class = "form-control", @readonly = "readonly" })
+                        <br/>
+                        <input type="button" id="btnClick" value="Update" class="btn btn-primary" onclick="ItemCreated()" ; />
+                        <input type="button" id="btnReset" value="Reset" class="btn btn-primary" onclick="ReLoad()" ; />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+document.getElementById("btnClick").disabled = true;
+
+        $('#VenReqID').change(function(){
+         $.ajax({
+                url: "@Url.Action("GeGetVendorcnf", "Vendor")",
+                data: { reqid: $("#VenReqID").val() },
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $("#id").val(data[0].id);
+                $("#Req").val(data[0].ReqID);
+                $("#VenID").val(data[0].VenID);
+                $("#VenReqID").val(data[0].VenReqID);
+                $("#msg").val(data[0].msg);
+                $("#dateLimit").val(data[0].dateLimit);
+                $("#RegionName").val(data[0].RegionName);
+                $("#AreaName").val(data[0].AreaName);
+                $("#CeAreaName").val(data[0].CeAreaName);
+                $("#DbName").val(data[0].DbName);
+                $("#cluster").val(data[0].cluster);
+                $("#PSRName").val(data[0].PSRName);
+                $("#SubRoute").val(data[0].SubRoute);
+                $("#OutletCode").val(data[0].OutletCode);
+                $("#OutLetName").val(data[0].OutLetName);
+                $("#Address").val(data[0].Address);
+                $("#OwnerName").val(data[0].OwnerName);
+                $("#ContactNum").val(data[0].ContactNum);
+                $("#ChannelName").val(data[0].ChannelName);
+                $("#OutletCatagory").val(data[0].OutletCatagory);
+                $("#signageheight").val(data[0].signageheight);
+                $("#signagewidth").val(data[0].signagewidth);
+                $("#remarks").val(data[0].remarks);
+                $("#PicUrl").val(data[0].PicUrl);
+                $("#btnSave").prop('disabled', false);
+                $("#signageheightNew").val(data[0].signageheightNew);
+                $("#signagewidthNew").val(data[0].signagewidthNew);
+                $("#feedback").val(data[0].signageheightNew);
+                $("#dateLimitFinal").val(data[0].signagewidthNew);
+                //window.location.reload();
+            },
+            error: function () {
+                alert("Error!");
+            }
+            });
+
+            $("#btnClick").prop('disabled', false);
+        })
+
+        function ItemCreated(id) {
+            var answer = confirm('Are you sure you want to save this?');
+            if (answer) {
+                //  return;
+                //return status;
+            }
+            else {
+                return false;
+            }
+            var isAllValid = true;
+            var status = true;
+            if (isAllValid) {
+                var data = {
+                    id: $("#id").val(),
+                    ReqID: $("#Req").val(),
+                    VenID: $("#VenID").val(),
+                    VenReqID: $("#VenReqID").val(),
+                    RegionName: $("#RegionName").val(),
+                    AreaName: $("#AreaName").val(),
+                    CeAreaName: $("#CeAreaName").val(),
+                    DbName: $("#DbName").val(),
+                    cluster: $("#cluster").val(),
+                    PSRName: $("#PSRName").val(),
+                    SubRoute: $("#SubRoute").val(),
+                    OutletCode: $("#OutletCode").val(),
+                    OutLetName: $("#OutLetName").val(),
+                    Address: $("#Address").val(),
+                    OwnerName: $("#OwnerName").val(),
+                    ContactNum: $("#ContactNum").val(),
+                    ChannelName: $("#ChannelName").val(),
+                    OutletCatagory: $("#OutletCatagory").val(),
+                    signageheight: $("#signageheight").val(),
+                    signagewidth: $("#signagewidth").val(),
+                    signageheightNew: $("#signageheightNew").val(),
+                    signagewidthNew: $("#signagewidthNew").val(),
+                    remarks: $("#remarks").val(),
+                    msg: $("#msg").val(),
+                    dateLimit:$("#dateLimit").val(),
+                    dateLimitFinal: $("#dateLimitFinal").val(),
+                    feedback: $("#feedback").val(),
+                    AppFlag3: $("#AppFlag3").val(),
+                    OrderBy: $("#OrderBy").val()
+
+                }
+            }
+            //console.log(data);
+            debugger;
+
+            $.ajax({
+                url: '/OrderRequest/UpdateACKDataForVendor',
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (a) {
+                    //check is successfully save to database
+                    if (a.status == true) {
+
+                        alert('Successfully Done.');
+                        window.location.reload();
+                    }
+                    else {
+                        alert('Process is Failed!! Please Contact to IT dept.');
+                    }
+
+                },
+                error: function () {
+                    alert('Error. Please try again.');
+                }
+            });
+        }
+
+
+
+    function ReLoad(){
+        alert("Are you sure reset the page ...?")
+        location.reload();
+    }
+    $(function () {
+        $('#dateLimit').datetimepicker({
+            format: 'DD.MM.YYYY'
+        });
+    });
+
+
+
+</script>
+

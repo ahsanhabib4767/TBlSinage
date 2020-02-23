@@ -1,0 +1,1871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LIVEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sBenificiary">
+    <Key>
+      <PropertyRef Name="BenificiaryID" />
+    </Key>
+    <Property Name="BenificiaryID" Type="Int32" Nullable="false" />
+    <Property Name="BenificiaryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DesigID" Type="Int32" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeptID" Type="Int32" />
+    <Property Name="PlantID" Type="Int32" />
+    <Property Name="PlantFlag" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sMenu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="sPageNames" Relationship="Self.fk_Menu" FromRole="sMenu" ToRole="sPageName" />
+    <NavigationProperty Name="sUserPages" Relationship="Self.fk_MenuID" FromRole="sMenu" ToRole="sUserPages" />
+  </EntityType>
+  <EntityType Name="sPageName">
+    <Key>
+      <PropertyRef Name="SLNo" />
+    </Key>
+    <Property Name="SLNo" Type="Int32" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Used" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MenuID" Type="Int32" />
+    <Property Name="PageType" Type="Int32" />
+    <NavigationProperty Name="sMenu" Relationship="Self.fk_Menu" FromRole="sPageName" ToRole="sMenu" />
+  </EntityType>
+  <EntityType Name="sParam">
+    <Key>
+      <PropertyRef Name="IDCode" />
+    </Key>
+    <Property Name="IDCode" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StartCode" Type="Int32" />
+    <Property Name="Active" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ParentCode" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sPlant">
+    <Key>
+      <PropertyRef Name="PlantNo" />
+    </Key>
+    <Property Name="PlantNo" Type="Int32" Nullable="false" />
+    <Property Name="PlantCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PlantName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegetrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sRole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="sUserPages" Relationship="Self.fk_RoleID" FromRole="sRoles" ToRole="sUserPages" />
+  </EntityType>
+  <EntityType Name="sUserPage">
+    <Key>
+      <PropertyRef Name="PlantNo" />
+      <PropertyRef Name="PageCode" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="PlantNo" Type="Int32" Nullable="false" />
+    <Property Name="PageCode" Type="Int32" Nullable="false" />
+    <Property Name="PageDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ContName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MenuID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="sMenu" Relationship="Self.fk_MenuID" FromRole="sUserPages" ToRole="sMenu" />
+    <NavigationProperty Name="sRole" Relationship="Self.fk_RoleID" FromRole="sUserPages" ToRole="sRoles" />
+  </EntityType>
+  <EntityType Name="DataFromDurbin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DbId" Type="Int32" />
+    <Property Name="DbName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PsrCode" Type="Int32" />
+    <Property Name="SubRoute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubRouteCode" Type="Int32" />
+    <Property Name="OutletCode" Type="Int32" />
+    <Property Name="OutLetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="HaveVisicooler" Type="Boolean" />
+    <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AvgSales" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OtherBrand">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OBrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SinageType">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sinageTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="fk_Menu">
+    <End Role="sMenu" Type="Self.sMenu" Multiplicity="0..1" />
+    <End Role="sPageName" Type="Self.sPageName" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="sPageName">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MenuID">
+    <End Role="sMenu" Type="Self.sMenu" Multiplicity="0..1" />
+    <End Role="sUserPages" Type="Self.sUserPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="sUserPages">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleID">
+    <End Role="sRoles" Type="Self.sRole" Multiplicity="0..1" />
+    <End Role="sUserPages" Type="Self.sUserPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sRoles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="sUserPages">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LIVEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sBenificiaries" EntityType="Self.sBenificiary" />
+    <EntitySet Name="sMenus" EntityType="Self.sMenu" />
+    <EntitySet Name="sPageNames" EntityType="Self.sPageName" />
+    <EntitySet Name="sParams" EntityType="Self.sParam" />
+    <EntitySet Name="sPlants" EntityType="Self.sPlant" />
+    <EntitySet Name="sRoles" EntityType="Self.sRole" />
+    <EntitySet Name="sUserPages" EntityType="Self.sUserPage" />
+    <EntitySet Name="DataFromDurbins" EntityType="Self.DataFromDurbin" />
+    <EntitySet Name="OtherBrands" EntityType="Self.OtherBrand" />
+    <EntitySet Name="SinageTypes" EntityType="Self.SinageType" />
+    <AssociationSet Name="fk_Menu" Association="Self.fk_Menu">
+      <End Role="sMenu" EntitySet="sMenus" />
+      <End Role="sPageName" EntitySet="sPageNames" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MenuID" Association="Self.fk_MenuID">
+      <End Role="sMenu" EntitySet="sMenus" />
+      <End Role="sUserPages" EntitySet="sUserPages" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleID" Association="Self.fk_RoleID">
+      <End Role="sRoles" EntitySet="sRoles" />
+      <End Role="sUserPages" EntitySet="sUserPages" />
+    </AssociationSet>
+    <FunctionImport Name="getDataFromDurbin" ReturnType="Collection(LIVEModel.getDataFromDurbin_Result)">
+      <Parameter Name="outletcode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUserLoginToApplication" ReturnType="Collection(LIVEModel.spUserLoginToApplication_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserPass" Mode="In" Type="String" />
+      <Parameter Name="UserPin" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUserLogin" ReturnType="Collection(LIVEModel.spUserLogin_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserPass" Mode="In" Type="String" />
+      <Parameter Name="UserPin" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ASMAcceptances" EntityType="LIVEModel.ASMAcceptance" />
+    <EntitySet Name="tblVendors" EntityType="LIVEModel.tblVendor" />
+    <EntitySet Name="CustomerExecutives" EntityType="LIVEModel.CustomerExecutive" />
+    <EntitySet Name="RegionalSalesManagers" EntityType="LIVEModel.RegionalSalesManager" />
+    <EntitySet Name="TerritoryDevelopmentManagers" EntityType="LIVEModel.TerritoryDevelopmentManager" />
+    <EntitySet Name="sUsers" EntityType="LIVEModel.sUser" />
+    <FunctionImport Name="statusofRequest" ReturnType="Collection(LIVEModel.statusofRequest_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataForASM" ReturnType="Collection(LIVEModel.getDataForASM_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="workOrderFinal" ReturnType="Collection(LIVEModel.workOrderFinal_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataForASMDD" ReturnType="Collection(LIVEModel.getDataForASMDD_Result)" />
+    <FunctionImport Name="fun_ReqMaster" />
+    <FunctionImport Name="getForASM" ReturnType="Collection(LIVEModel.getForASM_Result)" />
+    <FunctionImport Name="getForSaleOff" ReturnType="Collection(LIVEModel.getForSaleOff_Result)" />
+    <FunctionImport Name="getForSaleOffbyId" ReturnType="Collection(LIVEModel.getForSaleOffbyId_Result)">
+      <Parameter Name="reqid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fun_SOff" />
+    <FunctionImport Name="fun_venlist" />
+    <FunctionImport Name="GetVendorcnfALL" ReturnType="Collection(LIVEModel.GetVendorcnfALL_Result)">
+      <Parameter Name="reqid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SEFeedbackDo" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MKTData" ReturnType="Collection(LIVEModel.MKTData_Result)" />
+    <FunctionImport Name="workOrder" ReturnType="Collection(LIVEModel.workOrder_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="VisicoolerSizes" EntityType="LIVEModel.VisicoolerSize" />
+    <FunctionImport Name="GetVendorAcknowledgement" ReturnType="Collection(LIVEModel.GetVendorAcknowledgement_Result)">
+      <Parameter Name="venid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataAMVisi" ReturnType="Collection(LIVEModel.getDataAMVisi_Result)">
+      <Parameter Name="asmid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataMEMVisi" ReturnType="Collection(LIVEModel.getDataMEMVisi_Result)" />
+    <FunctionImport Name="getDataRSMVisi" ReturnType="Collection(LIVEModel.getDataRSMVisi_Result)">
+      <Parameter Name="rsmid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataSEVisi" ReturnType="Collection(LIVEModel.getDataSEVisi_Result)" />
+    <FunctionImport Name="workOrderforVendor" ReturnType="Collection(LIVEModel.workOrderforVendor_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ReportForDatewiseInstall" ReturnType="Collection(LIVEModel.ReportForDatewiseInstall_Result)">
+      <Parameter Name="date1" Mode="In" Type="DateTime" />
+      <Parameter Name="date2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ReportForVendorwiseInstall" ReturnType="Collection(LIVEModel.ReportForVendorwiseInstall_Result)">
+      <Parameter Name="vid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ReportForAllVendorwiseInstall" ReturnType="Collection(LIVEModel.ReportForAllVendorwiseInstall_Result)" />
+    <FunctionImport Name="ReportForMyVendor" ReturnType="Collection(LIVEModel.ReportForMyVendor_Result)">
+      <Parameter Name="vid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="VendorConfirms" EntityType="LIVEModel.VendorConfirm" />
+    <FunctionImport Name="getDataRSMMarketing" ReturnType="Collection(LIVEModel.getDataRSMMarketing_Result)">
+      <Parameter Name="rsmid" Mode="In" Type="Int32" />
+      <Parameter Name="begindate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="getVisiCoolerData" ReturnType="Collection(LIVEModel.getVisiCoolerData_Result)" />
+    <FunctionImport Name="GetVendorcnfDate" ReturnType="Collection(LIVEModel.GetVendorcnfDate_Result)">
+      <Parameter Name="reqId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MKTDataUpdate" ReturnType="Collection(LIVEModel.MKTDataUpdate_Result)" />
+    <FunctionImport Name="GetVendorcnf" ReturnType="Collection(LIVEModel.GetVendorcnf_Result)" />
+    <FunctionImport Name="GetSEcnf" ReturnType="Collection(LIVEModel.GetSEcnf_Result)" />
+    <EntitySet Name="RequestMasters" EntityType="LIVEModel.RequestMaster" />
+    <FunctionImport Name="getDataAM" ReturnType="Collection(LIVEModel.getDataAM_Result)">
+      <Parameter Name="asmid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getDataForASMsales" ReturnType="Collection(LIVEModel.getDataForASMsales_Result)" />
+    <FunctionImport Name="GetRequestDataForMKT" ReturnType="Collection(LIVEModel.GetRequestDataForMKT_Result)" />
+    <FunctionImport Name="getOutletDataFromDurbin" ReturnType="Collection(LIVEModel.getOutletDataFromDurbin_Result)">
+      <Parameter Name="outletcode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="RequestVisicoolers" EntityType="LIVEModel.RequestVisicooler" />
+  </EntityContainer>
+  <ComplexType Name="getDataFromDurbin_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DbId" Nullable="true" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PsrCode" Nullable="true" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SubRouteCode" Nullable="true" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AvgSales" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUserLoginToApplication_Result">
+    <Property Type="Int32" Name="TransID" Nullable="false" />
+    <Property Type="Int32" Name="TransStatus" Nullable="false" />
+    <Property Type="String" Name="TransMessage" Nullable="false" MaxLength="24" />
+  </ComplexType>
+  <ComplexType Name="spUserLogin_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="UserPass" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="UserPin" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="PlantNo" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="ASMAcceptance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReqID" Type="Int32" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DbName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubRoute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCode" Type="Int32" />
+    <Property Name="OutLetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ContactNumTwo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="HaveVisicooler" Type="Boolean" />
+    <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sinagetype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currentsignage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sinage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signageheight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signagewidth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblVendor">
+    <Key>
+      <PropertyRef Name="VenID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenID" Type="Int32" Nullable="false" />
+    <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VendorAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerExecutive">
+    <Key>
+      <PropertyRef Name="CustomerExecutiveID" />
+    </Key>
+    <Property Name="CustomerExecutiveID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerExecutiveName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TeritoryDevelopmentManagerID" Type="Int32" Nullable="false" />
+    <Property Name="CEArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RegionalSalesManager">
+    <Key>
+      <PropertyRef Name="RSMID" />
+    </Key>
+    <Property Name="RSMID" Type="Int32" Nullable="false" />
+    <Property Name="RSMDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RSMArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TerritoryDevelopmentManager">
+    <Key>
+      <PropertyRef Name="TerritoryDevelopmentManagerID" />
+    </Key>
+    <Property Name="TerritoryDevelopmentManagerID" Type="Int32" Nullable="false" />
+    <Property Name="TerritoryDevelopmentManagerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RSMID" Type="Int32" />
+    <Property Name="ASMArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UserPass" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UserPin" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="UserStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="PlantNo" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoginType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="LoginTypeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActiveSession" Type="Int32" />
+    <Property Name="CreateBy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="statusofRequest_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinagetype" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataForASM_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="workOrderFinal_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VenID" Nullable="false" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Flag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Flag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Flag3" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataForASMDD_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getForASM_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getForSaleOff_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getForSaleOffbyId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetVendorcnfALL_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="Expr1" Nullable="true" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="MKTData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="workOrder_Result">
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="VisicoolerSize">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisiSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GetVendorAcknowledgement_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="venid1" Nullable="true" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getDataAMVisi_Result">
+    <Property Type="Int32" Name="TerritoryDevelopmentManagerID" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visicooleNeed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MEM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NightGuard" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiCoolerSize" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="TotalCase" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataMEMVisi_Result">
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visicooleNeed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MEM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NightGuard" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiCoolerSize" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TotalCase" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataRSMVisi_Result">
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visicooleNeed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MEM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NightGuard" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiCoolerSize" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="TotalCase" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataSEVisi_Result">
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visicooleNeed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MEM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NightGuard" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiCoolerSize" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiCode" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="String" Name="NewVisiSize" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VisiSize" Nullable="true" />
+    <Property Type="String" Name="TotalCase" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SEAck" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="workOrderforVendor_Result">
+    <Property Type="Int32" Name="VenID" Nullable="false" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ReportForDatewiseInstall_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ReportForVendorwiseInstall_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ReportForAllVendorwiseInstall_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ASMdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HOSdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ReportForMyVendor_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ASMdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HOSdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="VendorConfirm">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenReqID" Type="Int32" />
+    <Property Name="VenID" Type="Int32" />
+    <Property Name="ReqID" Type="Int32" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DbName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubRoute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCode" Type="Int32" />
+    <Property Name="OutLetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNum" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="ContactNumTwo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="HaveVisicooler" Type="Boolean" />
+    <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sinagetype" Type="Int32" />
+    <Property Name="currentsignage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sinage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="otherbrand" Type="Int32" />
+    <Property Name="otherbrandd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signageheight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signagewidth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signageheightNew" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="signagewidthNew" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dateLimit" Type="DateTime" Precision="0" />
+    <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateLimitfinal" Type="DateTime" Precision="0" />
+    <Property Name="SE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PicUrl2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="feedback" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SEfeedback" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="installDate" Type="DateTime" Precision="0" />
+    <Property Name="PrintDate" Type="DateTime" Precision="3" />
+    <Property Name="PrintFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="getDataRSMMarketing_Result">
+    <Property Type="Int32" Name="TeritoryDevelopmentManagerID" Nullable="false" />
+    <Property Type="Int32" Name="RSMID" Nullable="true" />
+    <Property Type="Int32" Name="CustomerExecutiveID" Nullable="false" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ASMdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HOSdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getVisiCoolerData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visicooleNeed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MEM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NightGuard" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VisiSize" Nullable="true" />
+    <Property Type="String" Name="NewVisiSize" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="String" Name="VisiCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SEAck" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TotalCase" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VisiApplicationImg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TradeLicenseImg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VoterIDImg" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetVendorcnfDate_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="MKTDataUpdate_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetVendorcnf_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="Int32" Name="diff" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="String" Name="VendorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VendorAddress" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetSEcnf_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="VenReqID" Nullable="true" />
+    <Property Type="Int32" Name="VenID" Nullable="true" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheightNew" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="signagewidthNew" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="dateLimit" Nullable="true" />
+    <Property Type="String" Name="msg" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dateLimitfinal" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="PicUrl2" Nullable="true" />
+    <Property Type="String" Name="feedback" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SEfeedback" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="installDate" Nullable="true" />
+    <Property Type="DateTime" Name="PrintDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PrintFlag" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="RequestMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReqID" Type="Int32" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DbName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubRoute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCode" Type="Int32" />
+    <Property Name="OutLetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNum" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="ContactNumTwo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="HaveVisicooler" Type="Boolean" />
+    <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PicUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sinagetype" Type="Int32" />
+    <Property Name="sinage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currentsignage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="otherbrand" Type="Int32" />
+    <Property Name="otherbrandd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signageheight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signagewidth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RSM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ASMdate" Type="DateTime" Precision="3" />
+    <Property Name="HOSdate" Type="DateTime" Precision="3" />
+    <Property Name="SalesVolume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="getDataAM_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TerritoryDevelopmentManagerID" Nullable="false" />
+    <Property Type="String" Name="SalesVolume" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getDataForASMsales_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="SalesVolume" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetRequestDataForMKT_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="ReqID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNumTwo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="HaveVisicooler" Nullable="true" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PicUrl" Nullable="true" />
+    <Property Type="Int32" Name="sinagetype" Nullable="true" />
+    <Property Type="String" Name="sinage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="currentsignage" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="otherbrand" Nullable="true" />
+    <Property Type="String" Name="otherbrandd" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signageheight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="signagewidth" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppFlag6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ASM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RSM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HOS" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BM" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ASMdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HOSdate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="OBrandName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sinageTypeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SalesVolume" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getOutletDataFromDurbin_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AreaName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeAreaName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DbId" Nullable="true" />
+    <Property Type="String" Name="DbName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cluster" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PSRName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PsrCode" Nullable="true" />
+    <Property Type="String" Name="SubRoute" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SubRouteCode" Nullable="true" />
+    <Property Type="Int32" Name="OutletCode" Nullable="true" />
+    <Property Type="String" Name="OutLetName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="OwnerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactNum" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="HaveVisicooler" Nullable="false" />
+    <Property Type="String" Name="ChannelName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletCatagoryName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartedDate" Nullable="true" />
+    <Property Type="Int32" Name="IsUpdate" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="VisiCool" Nullable="false" MaxLength="9" />
+  </ComplexType>
+  <EntityType Name="RequestVisicooler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReqID" Type="Int32" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DbName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cluster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubRoute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCode" Type="Int32" />
+    <Property Name="OutLetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ContactNumTwo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="HaveVisicooler" Type="Boolean" />
+    <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutletCatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="visicooleNeed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppFlag6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RSM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="NightGuard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VisiSize" Type="Int32" />
+    <Property Name="NewVisiSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="installDate" Type="DateTime" Precision="0" />
+    <Property Name="VisiCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SEAck" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalCase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VisiApplicationImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TradeLicenseImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VoterIDImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeedCopyImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

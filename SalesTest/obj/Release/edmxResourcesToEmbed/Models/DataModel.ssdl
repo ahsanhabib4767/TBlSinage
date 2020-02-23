@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LIVEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ASMAcceptance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReqID" Type="int" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+    <Property Name="CeAreaName" Type="varchar" MaxLength="50" />
+    <Property Name="DbName" Type="varchar" MaxLength="50" />
+    <Property Name="cluster" Type="varchar" MaxLength="50" />
+    <Property Name="PSRName" Type="varchar" MaxLength="50" />
+    <Property Name="SubRoute" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCode" Type="int" />
+    <Property Name="OutLetName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNum" Type="nchar" MaxLength="10" />
+    <Property Name="ContactNumTwo" Type="nchar" MaxLength="10" />
+    <Property Name="HaveVisicooler" Type="bit" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCatagoryName" Type="varchar" MaxLength="50" />
+    <Property Name="PicUrl" Type="nvarchar(max)" />
+    <Property Name="sinagetype" Type="varchar" MaxLength="50" />
+    <Property Name="currentsignage" Type="varchar" MaxLength="50" />
+    <Property Name="sinage" Type="varchar" MaxLength="50" />
+    <Property Name="signageheight" Type="varchar" MaxLength="50" />
+    <Property Name="signagewidth" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag1" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag2" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerExecutive">
+    <Key>
+      <PropertyRef Name="CustomerExecutiveID" />
+    </Key>
+    <Property Name="CustomerExecutiveID" Type="int" Nullable="false" />
+    <Property Name="CustomerExecutiveName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="TeritoryDevelopmentManagerID" Type="int" Nullable="false" />
+    <Property Name="CEArea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DataFromDurbin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+    <Property Name="CeAreaName" Type="varchar" MaxLength="50" />
+    <Property Name="DbId" Type="int" />
+    <Property Name="DbName" Type="varchar" MaxLength="50" />
+    <Property Name="cluster" Type="varchar" MaxLength="50" />
+    <Property Name="PSRName" Type="varchar" MaxLength="50" />
+    <Property Name="PsrCode" Type="int" />
+    <Property Name="SubRoute" Type="varchar" MaxLength="50" />
+    <Property Name="SubRouteCode" Type="int" />
+    <Property Name="OutletCode" Type="int" />
+    <Property Name="OutLetName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNum" Type="nchar" MaxLength="10" />
+    <Property Name="HaveVisicooler" Type="bit" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCatagoryName" Type="varchar" MaxLength="50" />
+    <Property Name="AvgSales" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LIVE.dbo.OtherBrands' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OtherBrands">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OBrandName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RegionalSalesManager">
+    <Key>
+      <PropertyRef Name="RSMID" />
+    </Key>
+    <Property Name="RSMID" Type="int" Nullable="false" />
+    <Property Name="RSMDescription" Type="varchar" MaxLength="100" />
+    <Property Name="RSMArea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RequestMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReqID" Type="int" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+    <Property Name="CeAreaName" Type="varchar" MaxLength="50" />
+    <Property Name="DbName" Type="varchar" MaxLength="50" />
+    <Property Name="cluster" Type="varchar" MaxLength="50" />
+    <Property Name="PSRName" Type="varchar" MaxLength="50" />
+    <Property Name="SubRoute" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCode" Type="int" />
+    <Property Name="OutLetName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNum" Type="nchar" MaxLength="50" />
+    <Property Name="ContactNumTwo" Type="nchar" MaxLength="50" />
+    <Property Name="HaveVisicooler" Type="bit" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCatagoryName" Type="varchar" MaxLength="50" />
+    <Property Name="PicUrl" Type="nvarchar(max)" />
+    <Property Name="sinagetype" Type="int" />
+    <Property Name="sinage" Type="varchar" MaxLength="50" />
+    <Property Name="currentsignage" Type="varchar" MaxLength="50" />
+    <Property Name="otherbrand" Type="int" />
+    <Property Name="otherbrandd" Type="varchar" MaxLength="50" />
+    <Property Name="signageheight" Type="varchar" MaxLength="50" />
+    <Property Name="signagewidth" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag1" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag2" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag3" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag4" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag5" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag6" Type="varchar" MaxLength="50" />
+    <Property Name="SE" Type="varchar" MaxLength="50" />
+    <Property Name="ASM" Type="varchar" MaxLength="50" />
+    <Property Name="RSM" Type="varchar" MaxLength="50" />
+    <Property Name="HOS" Type="varchar" MaxLength="50" />
+    <Property Name="BM" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RequestVisicooler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReqID" Type="int" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+    <Property Name="CeAreaName" Type="varchar" MaxLength="50" />
+    <Property Name="DbName" Type="varchar" MaxLength="50" />
+    <Property Name="cluster" Type="varchar" MaxLength="50" />
+    <Property Name="PSRName" Type="varchar" MaxLength="50" />
+    <Property Name="SubRoute" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCode" Type="int" />
+    <Property Name="OutLetName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNum" Type="nchar" MaxLength="10" />
+    <Property Name="ContactNumTwo" Type="nchar" MaxLength="10" />
+    <Property Name="HaveVisicooler" Type="bit" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCatagoryName" Type="varchar" MaxLength="50" />
+    <Property Name="visicooleNeed" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag1" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag2" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag3" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag4" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag5" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag6" Type="varchar" MaxLength="50" />
+    <Property Name="SE" Type="varchar" MaxLength="50" />
+    <Property Name="ASM" Type="varchar" MaxLength="50" />
+    <Property Name="RSM" Type="varchar" MaxLength="50" />
+    <Property Name="MEM" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="NightGuard" Type="varchar" MaxLength="50" />
+    <Property Name="VisiSize" Type="int" />
+    <Property Name="NewVisiSize" Type="varchar" MaxLength="50" />
+    <Property Name="installDate" Type="date" />
+    <Property Name="VisiCode" Type="varchar" MaxLength="50" />
+    <Property Name="SEAck" Type="varchar" MaxLength="50" />
+    <Property Name="TotalCase" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sBenificiary">
+    <Key>
+      <PropertyRef Name="BenificiaryID" />
+    </Key>
+    <Property Name="BenificiaryID" Type="int" Nullable="false" />
+    <Property Name="BenificiaryName" Type="varchar" MaxLength="500" />
+    <Property Name="DesigID" Type="int" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="PlantID" Type="int" />
+    <Property Name="PlantFlag" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LIVE.dbo.SinageType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SinageType">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sinageTypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sMenu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="MenuName" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="sPageName">
+    <Key>
+      <PropertyRef Name="SLNo" />
+    </Key>
+    <Property Name="SLNo" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ContName" Type="varchar" MaxLength="100" />
+    <Property Name="PageName" Type="varchar" MaxLength="100" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+    <Property Name="Used" Type="varchar" MaxLength="500" />
+    <Property Name="MenuID" Type="int" />
+    <Property Name="PageType" Type="int" />
+  </EntityType>
+  <EntityType Name="sParam">
+    <Key>
+      <PropertyRef Name="IDCode" />
+    </Key>
+    <Property Name="IDCode" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="StartCode" Type="int" />
+    <Property Name="Active" Type="varchar" MaxLength="3" />
+    <Property Name="ParentCode" Type="int" />
+  </EntityType>
+  <EntityType Name="sPlant">
+    <Key>
+      <PropertyRef Name="PlantNo" />
+    </Key>
+    <Property Name="PlantNo" Type="int" Nullable="false" />
+    <Property Name="PlantCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PlantName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="FaxNo" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="RegetrationNo" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="sRoles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="sUserPages">
+    <Key>
+      <PropertyRef Name="PlantNo" />
+      <PropertyRef Name="PageCode" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="PlantNo" Type="int" Nullable="false" />
+    <Property Name="PageCode" Type="int" Nullable="false" />
+    <Property Name="PageDescription" Type="varchar" MaxLength="500" />
+    <Property Name="ContName" Type="varchar" MaxLength="100" />
+    <Property Name="PageName" Type="varchar" MaxLength="100" />
+    <Property Name="MenuID" Type="int" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="15" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="UserPass" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserPin" Type="varchar" MaxLength="8" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="UserStatus" Type="varchar" MaxLength="3" />
+    <Property Name="PlantNo" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="LoginType" Type="varchar" MaxLength="1" />
+    <Property Name="LoginTypeID" Type="varchar" MaxLength="50" />
+    <Property Name="ActiveSession" Type="int" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="15" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LIVE.dbo.tblVendor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblVendor">
+    <Key>
+      <PropertyRef Name="VenID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VenID" Type="int" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="50" />
+    <Property Name="VendorAddress" Type="varchar" MaxLength="500" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="TerritoryDevelopmentManager">
+    <Key>
+      <PropertyRef Name="TerritoryDevelopmentManagerID" />
+    </Key>
+    <Property Name="TerritoryDevelopmentManagerID" Type="int" Nullable="false" />
+    <Property Name="TerritoryDevelopmentManagerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RSMID" Type="int" />
+    <Property Name="ASMArea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VendorConfirm">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VenReqID" Type="int" />
+    <Property Name="VenID" Type="int" />
+    <Property Name="ReqID" Type="int" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+    <Property Name="CeAreaName" Type="varchar" MaxLength="50" />
+    <Property Name="DbName" Type="varchar" MaxLength="50" />
+    <Property Name="cluster" Type="varchar" MaxLength="50" />
+    <Property Name="PSRName" Type="varchar" MaxLength="50" />
+    <Property Name="SubRoute" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCode" Type="int" />
+    <Property Name="OutLetName" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNum" Type="nchar" MaxLength="50" />
+    <Property Name="ContactNumTwo" Type="nchar" MaxLength="50" />
+    <Property Name="HaveVisicooler" Type="bit" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="50" />
+    <Property Name="OutletCatagoryName" Type="varchar" MaxLength="50" />
+    <Property Name="sinagetype" Type="int" />
+    <Property Name="currentsignage" Type="varchar" MaxLength="50" />
+    <Property Name="sinage" Type="varchar" MaxLength="50" />
+    <Property Name="otherbrand" Type="int" />
+    <Property Name="otherbrandd" Type="varchar" MaxLength="50" />
+    <Property Name="signageheight" Type="varchar" MaxLength="50" />
+    <Property Name="signagewidth" Type="varchar" MaxLength="50" />
+    <Property Name="signageheightNew" Type="varchar" MaxLength="50" />
+    <Property Name="signagewidthNew" Type="varchar" MaxLength="50" />
+    <Property Name="dateLimit" Type="date" />
+    <Property Name="msg" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag1" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag2" Type="varchar" MaxLength="50" />
+    <Property Name="AppFlag3" Type="varchar" MaxLength="50" />
+    <Property Name="OrderBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateLimitfinal" Type="date" />
+    <Property Name="SE" Type="varchar" MaxLength="50" />
+    <Property Name="PicUrl" Type="nvarchar(max)" />
+    <Property Name="PicUrl2" Type="nvarchar(max)" />
+    <Property Name="feedback" Type="varchar" MaxLength="200" />
+    <Property Name="SEfeedback" Type="varchar" MaxLength="50" />
+    <Property Name="installDate" Type="date" />
+  </EntityType>
+  <EntityType Name="VisicoolerSize">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisiSize" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="fk_Menu">
+    <End Role="sMenu" Type="Self.sMenu" Multiplicity="0..1" />
+    <End Role="sPageName" Type="Self.sPageName" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="sPageName">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MenuID">
+    <End Role="sMenu" Type="Self.sMenu" Multiplicity="0..1" />
+    <End Role="sUserPages" Type="Self.sUserPages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sMenu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="sUserPages">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleID">
+    <End Role="sRoles" Type="Self.sRoles" Multiplicity="0..1" />
+    <End Role="sUserPages" Type="Self.sUserPages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sRoles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="sUserPages">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getDataAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="asmid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getDataAMVisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="asmid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getDataForASM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getDataForASMsales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getDataFromDurbin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="outletcode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getDataMEMVisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getDataRSMVisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rsmid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getDataSEVisi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getForASM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getForSaleOffbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getOutletDataFromDurbin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="outletcode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSEcnf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetVendorAcknowledgement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="venid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetVendorcnf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetVendorcnfALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetVendorcnfDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MKTData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MKTDataUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ReportForDatewiseInstall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ReportForVendorwiseInstall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SEFeedbackDo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserPass" Type="varchar" Mode="In" />
+    <Parameter Name="UserPin" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUserLoginToApplication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserPass" Type="varchar" Mode="In" />
+    <Parameter Name="UserPin" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="statusofRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="workOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="workOrderFinal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="workOrderforVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reqId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="LIVEModelStoreContainer">
+    <EntitySet Name="ASMAcceptance" EntityType="Self.ASMAcceptance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerExecutive" EntityType="Self.CustomerExecutive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataFromDurbin" EntityType="Self.DataFromDurbin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegionalSalesManager" EntityType="Self.RegionalSalesManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestMaster" EntityType="Self.RequestMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestVisicooler" EntityType="Self.RequestVisicooler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sBenificiary" EntityType="Self.sBenificiary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sMenu" EntityType="Self.sMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sPageName" EntityType="Self.sPageName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sParam" EntityType="Self.sParam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sPlant" EntityType="Self.sPlant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sRoles" EntityType="Self.sRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sUserPages" EntityType="Self.sUserPages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sUsers" EntityType="Self.sUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerritoryDevelopmentManager" EntityType="Self.TerritoryDevelopmentManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorConfirm" EntityType="Self.VendorConfirm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisicoolerSize" EntityType="Self.VisicoolerSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherBrands" EntityType="Self.OtherBrands" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OtherBrands].[id] AS [id], 
+    [OtherBrands].[OBrandName] AS [OBrandName]
+    FROM [dbo].[OtherBrands] AS [OtherBrands]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SinageType" EntityType="Self.SinageType" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SinageType].[sid] AS [sid], 
+    [SinageType].[sinageTypeName] AS [sinageTypeName]
+    FROM [dbo].[SinageType] AS [SinageType]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblVendor" EntityType="Self.tblVendor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblVendor].[id] AS [id], 
+    [tblVendor].[VenID] AS [VenID], 
+    [tblVendor].[VendorName] AS [VendorName], 
+    [tblVendor].[VendorAddress] AS [VendorAddress], 
+    [tblVendor].[UserID] AS [UserID]
+    FROM [dbo].[tblVendor] AS [tblVendor]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_Menu" Association="Self.fk_Menu">
+      <End Role="sMenu" EntitySet="sMenu" />
+      <End Role="sPageName" EntitySet="sPageName" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MenuID" Association="Self.fk_MenuID">
+      <End Role="sMenu" EntitySet="sMenu" />
+      <End Role="sUserPages" EntitySet="sUserPages" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleID" Association="Self.fk_RoleID">
+      <End Role="sRoles" EntitySet="sRoles" />
+      <End Role="sUserPages" EntitySet="sUserPages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

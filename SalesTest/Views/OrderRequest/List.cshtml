@@ -1,0 +1,183 @@
+﻿@model IEnumerable<SalesTest.Models.RequestMaster>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReqID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CeAreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DbName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cluster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PSRName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubRoute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutletCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutLetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumTwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HaveVisicooler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChannelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutletCatagoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PicUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sinagetype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.currentsignage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sinage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.signageheight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.signagewidth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppFlag1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppFlag2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppFlag3)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CeAreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DbName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cluster)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PSRName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubRoute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutletCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutLetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNumTwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaveVisicooler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChannelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutletCatagoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sinagetype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.currentsignage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sinage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.signageheight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.signagewidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppFlag1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppFlag2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppFlag3)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

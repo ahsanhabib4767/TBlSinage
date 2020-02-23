@@ -1,0 +1,77 @@
+﻿@{ 
+Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+@using SalesTest.ModelData
+@model LoginVM
+<div class="login_wrapper">
+    <div class="jumbotron">
+        <h1 style="color:black">TBL Signage Software</h1>
+        <div class="separator">
+            <div class="clearfix"></div>
+            </div>
+            <section id="loginForm">
+
+                @using (Html.BeginForm("Login", "Account", new
+            {
+                ReturnUrl = ViewBag.ReturnUrl
+            }, FormMethod.Post, new
+            {
+                @class = "form-horizontal",
+                role = "form"
+            }))
+            {
+                    @Html.AntiForgeryToken()
+
+                    <hr />
+                    <h2 style="color:black">Login Here</h2>
+                    <hr />
+                            @Html.ValidationSummary(true, "", new
+                       {
+                           @class = "text-danger"
+                       }) <div>
+                                <label style="color:black">User ID</label>
+                                @Html.TextBoxFor(m => m.UserID, new
+                           {
+                               @class = "form-control"
+                           })
+                                @Html.ValidationMessageFor(m => m.UserID, "", new
+                           {
+                               @class = "text-danger"
+                           })
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div>
+                                <label style="color:black">PassWord</label>
+                                @Html.PasswordFor(m => m.UserPass, new
+                           {
+                               @class = "form-control"
+                           })
+                                @Html.ValidationMessageFor(m => m.UserPass, "", new
+                           {
+                               @class = "text-danger"
+                           })
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div>
+                                <div class="separator">
+                                    <input type="submit"
+                                           value="Log in"
+                                           class="btn btn-primary btn-sm" />
+                                </div>
+                            </div>
+
+                }
+            </section>
+            <div>
+
+                <p>©2019 TBL IT All Rights Reserved</p>
+                <p>IT Support-Rabby- 01682395404
+                 IT Support-Joha -01670216905
+                </p>
+            </div>
+        </div>
+
+    </div>
+

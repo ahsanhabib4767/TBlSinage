@@ -1,0 +1,258 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTwo.cshtml";
+}
+@model SalesTest.ModelData.RequestVM
+
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>SE Request Generate(রিকুয়েস্ট প্রদান)</h3>
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Form</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Settings 1</a>
+                                    <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div>
+                        <input type="text" id="load" class="form-control" placeholder="search by outletcode" onchange="UserCheck()" />
+                        <p id="Status" />
+                    </div>
+                    <div>
+                        <input type="button" id="SearchData" value="Click For Details" class="btn btn-primary btn-sm btn-block" />
+                    </div>
+
+                    @using (Html.BeginForm("SaveData", "OrderRequest", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="x_content">
+                            <div class="col-md-4">
+
+                                <label>Region Name:</label>
+                                @Html.TextBox("RegionName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Area Name</label>
+                                @Html.TextBox("AreaName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Ce Area</label>
+                                <input type="hidden" id="VehicleDes" />
+                                @Html.TextBox("CeAreaName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>DB Name</label>
+                                @Html.TextBox("DbName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Cluster</label>
+                                @Html.TextBox("cluster", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>PSR Name</label>
+                                @Html.TextBox("PSRName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label style="color:blue">SubRoute</label>
+                                @Html.TextBox("SubRoute", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <label style="color:red">Outlet Code</label>
+                                @Html.TextBox("OutletCode", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+
+                                <label>Outlet Name</label>
+                                @Html.TextBox("OutLetName", null, new { @class = "form-control", @readonly = "readonly", @required = "required" })
+                                <label>Outlet Address</label>
+                                @Html.TextBox("Address", null, new { @class = "form-control", @Value = "0", @readonly = "readonly" })
+
+                                <label>Owner Name</label>
+                                @Html.TextBox("OwnerName", null, new { @class = "form-control", @Value = "0", @readonly = "readonly" })
+                                <label>Contact Number</label>
+                                @Html.TextBox("ContactNum", null, new { @class = "form-control", @Value = "0", @required = "required" })
+
+                                <label>Alternative Contact</label>
+                                @Html.TextBox("ContactNumTwo", null, new { @class = "form-control", @Value = "0", @required = "required" })
+                                <label>Channel</label>
+                                @Html.TextBox("ChannelName", null, new { @class = "form-control", @Value = "0", @readonly = "readonly", @required = "required" })
+                            </div>
+                            <div class="col-md-4">
+                                <label>Signage Type<span class="required">*</span></label>
+
+                                @Html.DropDownList("sinagetype", null, "Select One", new { @class = "form-control", @required = "required" })
+                                @Html.ValidationMessageFor(model => model.sinagetype, "", new { @class = "error" })
+                                <label>Other Sinage<span class="required">*</span></label>
+                                @Html.DropDownList("otherbrand", null, "Select One", new { @class = "form-control", @required = "required" })
+                                <label>Signage Height(feet)</label>
+                                @Html.TextBox("signageheight", null, new { @class = "form-control", @Value = "0", @type = "number" })
+                                <label>Signage Width(feet)</label>
+                                @Html.TextBox("signagewidth", null, new { @class = "form-control", @Value = "0", @type = "number" })
+                                <label>Remarks</label>
+                                @Html.TextBox("remarks", null, new { @class = "form-control", @Value = "0" })
+                                <label>Upload Picture<span class="required">*</span></label>
+                                <input type="file" id="UploadImage" name="UploadImage" class="form-control" required="required" />
+                                <br />
+                                <button type="submit" id="btnClick" class="btn btn-primary btn-sm btn-block">
+                                    Save Request
+                                </button>
+                                <br />
+                                <input type="button" id="btnReset" value="Reset" class="btn btn-primary btn-sm btn-block" onclick="ReLoad()" ; />
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#SearchData").prop('disabled', false);
+
+    document.getElementById("btnClick").disabled = true;
+    $("#SearchData").click(function () {
+        $.ajax({
+            url: "@Url.Action("GetOutletcode", "OrderRequest")",
+            data: { outletcode: $("#load").val() },
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                if (data.length > 0) {
+                    $("#RegionName").val(data[0].RegionName);
+                    $("#AreaName").val(data[0].AreaName);
+                    $("#CeAreaName").val(data[0].CeAreaName);
+                    $("#DbName").val(data[0].DbName);
+                    $("#Address").val(data[0].Address);
+                    $("#cluster").val(data[0].cluster);
+                    $("#PSRName").val(data[0].PSRName);
+                    $("#SubRoute").val(data[0].SubRoute);
+                    $("#OutletCode").val(data[0].OutletCode);
+                    $("#OutLetName").val(data[0].OutLetName);
+                    $("#OwnerName").val(data[0].OwnerName);
+                    $("#ContactNum").val(data[0].ContactNum);
+                    $("#ChannelName").val(data[0].ChannelName);
+                    $("#OutletCatagory").val(data[0].OutletCatagory);
+                    $("#btnSave").prop('disabled', false);
+                    //window.location.reload();
+                }
+                else {
+                    alert("Outletcode not found");
+                }
+            },
+            error: function (data) {
+                alert("error found");
+            }
+        });
+
+        $("#btnClick").prop('disabled', true);
+    })
+
+    $('#UploadImage').change(function () {
+        $("#btnClick").prop('disabled', false);
+    });
+    function UserCheck() {
+        $("#Status").html("Checking...");
+        $.post("@Url.Action("CheckOutletAvailability", "OrderRequest")",
+    {
+        userdata: $("#load").val()
+    },
+    function (data) {
+        if (data == 0) {
+            $("#Status").html('<font color="Green">Available !! you can take this outlet code</font>');
+            $("#load").css("border-color", "Green");
+
+        }
+        else {
+            $("#Status").html('<font color="Red">This outlet code is taken.Try Another.</font>');
+            $("#load").css("border-color", "Red");
+        }
+    });
+    }
+    function ItemCreated() {
+        document.getElementById("btnClick").disabled = true;
+        var answer = confirm('Are you sure you want to save this?');
+        if (answer) {
+            //  return;
+            //return status;
+        }
+        else {
+            return false;
+        }
+        var isAllValid = true;
+        var status = true;
+
+        //debugger;
+
+        if (isAllValid) {
+            var data = {
+                RegionName: $("#regName").val(),
+                AreaName: $("#area").val(),
+                CeAreaName: $("#cearea").val(),
+                DbName: $("#dbname").val(),
+                cluster: $("#cluster").val(),
+                PSRName: $("#psrname").val(),
+                SubRoute: $("#subroute").val(),
+                OutletCode: $("#outletcode").val(),
+                Address: $("#Address").val(),
+                OutLetName: $("#outletname").val(),
+                Outletaddress: $("#outletaddress").val(),
+                OwnerName: $("#ownername").val(),
+                ContactNum: $("#contactnumber").val(),
+                ContactNumTwo: $("#altercontact").val(),
+                ChannelName: $("#channel").val(),
+                sinagetype: $("#otcatagory").val(),
+                signageheight: $("#hei").val(),
+                signagewidth: $("#wid").val(),
+                remarks: $("#rem").val(),
+            }
+        }
+        console.log(data);
+        $.ajax({
+            url: '/OrderRequest/SaveData',
+            type: "POST",
+            enctype: 'multipart/form-data',
+            processData: false,
+            data: JSON.stringify(data),
+            dataType: "JSON",
+            contentType: false,
+            cache: false,
+            success: function (a) {
+
+                if (a.status == true) {
+
+                    alert('Successfully Done... Requisition Token No:' + a.v);
+                    window.location.reload();
+                }
+                else {
+                    alert('Try again please!!');
+                }
+
+
+            },
+            error: function () {
+                alert('Error. Please try again.');
+            }
+        });
+    }
+    
+    function ReLoad() {
+        alert("Are you sure reset the page ...?")
+        location.reload();
+    }
+
+</script>
+
+
+

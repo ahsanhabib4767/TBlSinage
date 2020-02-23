@@ -1,0 +1,1486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LIVEModelStoreContainer" CdmEntityContainer="LIVEEntities">
+    <EntitySetMapping Name="sBenificiaries">
+      <EntityTypeMapping TypeName="LIVEModel.sBenificiary">
+        <MappingFragment StoreEntitySet="sBenificiary">
+          <ScalarProperty Name="BenificiaryID" ColumnName="BenificiaryID" />
+          <ScalarProperty Name="BenificiaryName" ColumnName="BenificiaryName" />
+          <ScalarProperty Name="DesigID" ColumnName="DesigID" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="PlantFlag" ColumnName="PlantFlag" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sMenus">
+      <EntityTypeMapping TypeName="LIVEModel.sMenu">
+        <MappingFragment StoreEntitySet="sMenu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sPageNames">
+      <EntityTypeMapping TypeName="LIVEModel.sPageName">
+        <MappingFragment StoreEntitySet="sPageName">
+          <ScalarProperty Name="SLNo" ColumnName="SLNo" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ContName" ColumnName="ContName" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Used" ColumnName="Used" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="PageType" ColumnName="PageType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sParams">
+      <EntityTypeMapping TypeName="LIVEModel.sParam">
+        <MappingFragment StoreEntitySet="sParam">
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartCode" ColumnName="StartCode" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sPlants">
+      <EntityTypeMapping TypeName="LIVEModel.sPlant">
+        <MappingFragment StoreEntitySet="sPlant">
+          <ScalarProperty Name="PlantNo" ColumnName="PlantNo" />
+          <ScalarProperty Name="PlantCode" ColumnName="PlantCode" />
+          <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RegetrationNo" ColumnName="RegetrationNo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sRoles">
+      <EntityTypeMapping TypeName="LIVEModel.sRole">
+        <MappingFragment StoreEntitySet="sRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sUserPages">
+      <EntityTypeMapping TypeName="LIVEModel.sUserPage">
+        <MappingFragment StoreEntitySet="sUserPages">
+          <ScalarProperty Name="PlantNo" ColumnName="PlantNo" />
+          <ScalarProperty Name="PageCode" ColumnName="PageCode" />
+          <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+          <ScalarProperty Name="ContName" ColumnName="ContName" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataFromDurbins">
+      <EntityTypeMapping TypeName="LIVEModel.DataFromDurbin">
+        <MappingFragment StoreEntitySet="DataFromDurbin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbId" ColumnName="DbId" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="PsrCode" ColumnName="PsrCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="SubRouteCode" ColumnName="SubRouteCode" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="AvgSales" ColumnName="AvgSales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherBrands">
+      <EntityTypeMapping TypeName="LIVEModel.OtherBrand">
+        <MappingFragment StoreEntitySet="OtherBrands">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinageTypes">
+      <EntityTypeMapping TypeName="LIVEModel.SinageType">
+        <MappingFragment StoreEntitySet="SinageType">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getDataFromDurbin" FunctionName="LIVEModel.Store.getDataFromDurbin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataFromDurbin_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbId" ColumnName="DbId" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="PsrCode" ColumnName="PsrCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="SubRouteCode" ColumnName="SubRouteCode" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="AvgSales" ColumnName="AvgSales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUserLoginToApplication" FunctionName="LIVEModel.Store.spUserLoginToApplication">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.spUserLoginToApplication_Result">
+          <ScalarProperty Name="TransID" ColumnName="TransID" />
+          <ScalarProperty Name="TransStatus" ColumnName="TransStatus" />
+          <ScalarProperty Name="TransMessage" ColumnName="TransMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUserLogin" FunctionName="LIVEModel.Store.spUserLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.spUserLogin_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="UserPin" ColumnName="UserPin" />
+          <ScalarProperty Name="PlantNo" ColumnName="PlantNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ASMAcceptances">
+      <EntityTypeMapping TypeName="LIVEModel.ASMAcceptance">
+        <MappingFragment StoreEntitySet="ASMAcceptance">
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVendors">
+      <EntityTypeMapping TypeName="LIVEModel.tblVendor">
+        <MappingFragment StoreEntitySet="tblVendor">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerExecutives">
+      <EntityTypeMapping TypeName="LIVEModel.CustomerExecutive">
+        <MappingFragment StoreEntitySet="CustomerExecutive">
+          <ScalarProperty Name="CEArea" ColumnName="CEArea" />
+          <ScalarProperty Name="TeritoryDevelopmentManagerID" ColumnName="TeritoryDevelopmentManagerID" />
+          <ScalarProperty Name="CustomerExecutiveName" ColumnName="CustomerExecutiveName" />
+          <ScalarProperty Name="CustomerExecutiveID" ColumnName="CustomerExecutiveID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegionalSalesManagers">
+      <EntityTypeMapping TypeName="LIVEModel.RegionalSalesManager">
+        <MappingFragment StoreEntitySet="RegionalSalesManager">
+          <ScalarProperty Name="RSMArea" ColumnName="RSMArea" />
+          <ScalarProperty Name="RSMDescription" ColumnName="RSMDescription" />
+          <ScalarProperty Name="RSMID" ColumnName="RSMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerritoryDevelopmentManagers">
+      <EntityTypeMapping TypeName="LIVEModel.TerritoryDevelopmentManager">
+        <MappingFragment StoreEntitySet="TerritoryDevelopmentManager">
+          <ScalarProperty Name="ASMArea" ColumnName="ASMArea" />
+          <ScalarProperty Name="RSMID" ColumnName="RSMID" />
+          <ScalarProperty Name="TerritoryDevelopmentManagerName" ColumnName="TerritoryDevelopmentManagerName" />
+          <ScalarProperty Name="TerritoryDevelopmentManagerID" ColumnName="TerritoryDevelopmentManagerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sUsers">
+      <EntityTypeMapping TypeName="LIVEModel.sUser">
+        <MappingFragment StoreEntitySet="sUsers">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="ActiveSession" ColumnName="ActiveSession" />
+          <ScalarProperty Name="LoginTypeID" ColumnName="LoginTypeID" />
+          <ScalarProperty Name="LoginType" ColumnName="LoginType" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PlantNo" ColumnName="PlantNo" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserPin" ColumnName="UserPin" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="statusofRequest" FunctionName="LIVEModel.Store.statusofRequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.statusofRequest_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDataForASM" FunctionName="LIVEModel.Store.getDataForASM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataForASM_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="workOrderFinal" FunctionName="LIVEModel.Store.workOrderFinal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.workOrderFinal_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="Flag1" ColumnName="Flag1" />
+          <ScalarProperty Name="Flag2" ColumnName="Flag2" />
+          <ScalarProperty Name="Flag3" ColumnName="Flag3" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getForASM" FunctionName="LIVEModel.Store.getForASM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getForASM_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getForSaleOffbyId" FunctionName="LIVEModel.Store.getForSaleOffbyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getForSaleOffbyId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVendorcnfALL" FunctionName="LIVEModel.Store.GetVendorcnfALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.GetVendorcnfALL_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ReportForDatewiseInstall" FunctionName="LIVEModel.Store.ReportForDatewiseInstall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.ReportForDatewiseInstall_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEFeedbackDo" FunctionName="LIVEModel.Store.SEFeedbackDo" />
+    <FunctionImportMapping FunctionImportName="getDataForASMsales" FunctionName="LIVEModel.Store.getDataForASMsales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataForASMsales_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDataAM" FunctionName="LIVEModel.Store.getDataAM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataAM_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="TerritoryDevelopmentManagerID" ColumnName="TerritoryDevelopmentManagerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVendorcnfDate" FunctionName="LIVEModel.Store.GetVendorcnfDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.GetVendorcnfDate_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSEcnf" FunctionName="LIVEModel.Store.GetSEcnf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.GetSEcnf_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MKTData" FunctionName="LIVEModel.Store.MKTData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.MKTData_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVendorcnf" FunctionName="LIVEModel.Store.GetVendorcnf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.GetVendorcnf_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ReportForVendorwiseInstall" FunctionName="LIVEModel.Store.ReportForVendorwiseInstall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.ReportForVendorwiseInstall_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="workOrder" FunctionName="LIVEModel.Store.workOrder">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.workOrder_Result">
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="VendorConfirms">
+      <EntityTypeMapping TypeName="LIVEModel.VendorConfirm">
+        <MappingFragment StoreEntitySet="VendorConfirm">
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisicoolerSizes">
+      <EntityTypeMapping TypeName="LIVEModel.VisicoolerSize">
+        <MappingFragment StoreEntitySet="VisicoolerSize">
+          <ScalarProperty Name="VisiSize" ColumnName="VisiSize" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getOutletDataFromDurbin" FunctionName="LIVEModel.Store.getOutletDataFromDurbin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getOutletDataFromDurbin_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbId" ColumnName="DbId" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="PsrCode" ColumnName="PsrCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="SubRouteCode" ColumnName="SubRouteCode" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="StartedDate" ColumnName="StartedDate" />
+          <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="OutletOrderCaseQty" ColumnName="OutletOrderCaseQty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MKTDataUpdate" FunctionName="LIVEModel.Store.MKTDataUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.MKTDataUpdate_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="RequestMasters">
+      <EntityTypeMapping TypeName="LIVEModel.RequestMaster">
+        <MappingFragment StoreEntitySet="RequestMaster">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="BM" ColumnName="BM" />
+          <ScalarProperty Name="HOS" ColumnName="HOS" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetVendorAcknowledgement" FunctionName="LIVEModel.Store.GetVendorAcknowledgement">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.GetVendorAcknowledgement_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="currentsignage" ColumnName="currentsignage" />
+          <ScalarProperty Name="sinage" ColumnName="sinage" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="otherbrandd" ColumnName="otherbrandd" />
+          <ScalarProperty Name="signageheight" ColumnName="signageheight" />
+          <ScalarProperty Name="signagewidth" ColumnName="signagewidth" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="dateLimit" ColumnName="dateLimit" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="dateLimitfinal" ColumnName="dateLimitfinal" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+          <ScalarProperty Name="PicUrl2" ColumnName="PicUrl2" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="venid1" ColumnName="venid1" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="RequestVisicoolers">
+      <EntityTypeMapping TypeName="LIVEModel.RequestVisicooler">
+        <MappingFragment StoreEntitySet="RequestVisicooler">
+          <ScalarProperty Name="TotalCase" ColumnName="TotalCase" />
+          <ScalarProperty Name="SEAck" ColumnName="SEAck" />
+          <ScalarProperty Name="VisiCode" ColumnName="VisiCode" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="NewVisiSize" ColumnName="NewVisiSize" />
+          <ScalarProperty Name="VisiSize" ColumnName="VisiSize" />
+          <ScalarProperty Name="NightGuard" ColumnName="NightGuard" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="MEM" ColumnName="MEM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="visicooleNeed" ColumnName="visicooleNeed" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="HaveVisicooler" ColumnName="HaveVisicooler" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getDataAMVisi" FunctionName="LIVEModel.Store.getDataAMVisi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataAMVisi_Result">
+          <ScalarProperty Name="TerritoryDevelopmentManagerID" ColumnName="TerritoryDevelopmentManagerID" />
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="visicooleNeed" ColumnName="visicooleNeed" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="MEM" ColumnName="MEM" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NightGuard" ColumnName="NightGuard" />
+          <ScalarProperty Name="VisiCoolerSize" ColumnName="VisiCoolerSize" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TotalCase" ColumnName="TotalCase" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDataMEMVisi" FunctionName="LIVEModel.Store.getDataMEMVisi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataMEMVisi_Result">
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="visicooleNeed" ColumnName="visicooleNeed" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="MEM" ColumnName="MEM" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NightGuard" ColumnName="NightGuard" />
+          <ScalarProperty Name="VisiCoolerSize" ColumnName="VisiCoolerSize" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="TotalCase" ColumnName="TotalCase" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDataRSMVisi" FunctionName="LIVEModel.Store.getDataRSMVisi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataRSMVisi_Result">
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="visicooleNeed" ColumnName="visicooleNeed" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="MEM" ColumnName="MEM" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NightGuard" ColumnName="NightGuard" />
+          <ScalarProperty Name="VisiCoolerSize" ColumnName="VisiCoolerSize" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TotalCase" ColumnName="TotalCase" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getDataSEVisi" FunctionName="LIVEModel.Store.getDataSEVisi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.getDataSEVisi_Result">
+          <ScalarProperty Name="ReqID" ColumnName="ReqID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="ContactNumTwo" ColumnName="ContactNumTwo" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="OutletCatagoryName" ColumnName="OutletCatagoryName" />
+          <ScalarProperty Name="visicooleNeed" ColumnName="visicooleNeed" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="AppFlag1" ColumnName="AppFlag1" />
+          <ScalarProperty Name="AppFlag2" ColumnName="AppFlag2" />
+          <ScalarProperty Name="AppFlag3" ColumnName="AppFlag3" />
+          <ScalarProperty Name="AppFlag4" ColumnName="AppFlag4" />
+          <ScalarProperty Name="AppFlag5" ColumnName="AppFlag5" />
+          <ScalarProperty Name="AppFlag6" ColumnName="AppFlag6" />
+          <ScalarProperty Name="ASM" ColumnName="ASM" />
+          <ScalarProperty Name="RSM" ColumnName="RSM" />
+          <ScalarProperty Name="MEM" ColumnName="MEM" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NightGuard" ColumnName="NightGuard" />
+          <ScalarProperty Name="VisiCoolerSize" ColumnName="VisiCoolerSize" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SE" ColumnName="SE" />
+          <ScalarProperty Name="VisiCode" ColumnName="VisiCode" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="NewVisiSize" ColumnName="NewVisiSize" />
+          <ScalarProperty Name="VisiSize" ColumnName="VisiSize" />
+          <ScalarProperty Name="TotalCase" ColumnName="TotalCase" />
+          <ScalarProperty Name="SEAck" ColumnName="SEAck" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="workOrderforVendor" FunctionName="LIVEModel.Store.workOrderforVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIVEModel.workOrderforVendor_Result">
+          <ScalarProperty Name="VenID" ColumnName="VenID" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+          <ScalarProperty Name="installDate" ColumnName="installDate" />
+          <ScalarProperty Name="SEfeedback" ColumnName="SEfeedback" />
+          <ScalarProperty Name="signagewidthNew" ColumnName="signagewidthNew" />
+          <ScalarProperty Name="signageheightNew" ColumnName="signageheightNew" />
+          <ScalarProperty Name="sinagetype" ColumnName="sinagetype" />
+          <ScalarProperty Name="otherbrand" ColumnName="otherbrand" />
+          <ScalarProperty Name="ContactNum" ColumnName="ContactNum" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OutLetName" ColumnName="OutLetName" />
+          <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="PSRName" ColumnName="PSRName" />
+          <ScalarProperty Name="cluster" ColumnName="cluster" />
+          <ScalarProperty Name="DbName" ColumnName="DbName" />
+          <ScalarProperty Name="CeAreaName" ColumnName="CeAreaName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="VenReqID" ColumnName="VenReqID" />
+          <ScalarProperty Name="OBrandName" ColumnName="OBrandName" />
+          <ScalarProperty Name="sinageTypeName" ColumnName="sinageTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
